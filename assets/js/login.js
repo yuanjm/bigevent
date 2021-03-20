@@ -34,7 +34,7 @@ $(function() {
                     return;
                 }
                 location.href = "/index.html";
-
+                localStorage.setItem("token", res.token)
             })
     })
 
