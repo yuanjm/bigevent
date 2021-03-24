@@ -26,5 +26,32 @@ $(function(){
         .cropper(options);
 
     })
+
+    //btnUpload
+    $("#btnUpload").on("click",function(e){
+        var dataURL = $image
+            .cropper('getCroppedCanvas', { // 创建一个 Canvas 画布
+            width: 100,
+            height: 100
+        })
+        .toDataURL('image/png')
+
+        $.ajax({
+            type: "POST",
+            url: "/my/update/avatar",
+            data: {
+                avatar: dataURL
+            },
+            success: function(res){
+                if(res.status!==0)
+                {
+                    layui.layer.msg("更新头像失败！")
+                    return;
+                }
+                layui.layer.msg("更新头像成功！");
+                window.parent.getUserInfo();
+            }
+        })
+    })
 })
 
