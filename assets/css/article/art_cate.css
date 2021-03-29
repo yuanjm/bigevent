@@ -1,8 +1,20 @@
-html,body {
-    margin:0;
-    padding:0;
+html,
+body {
+    margin: 0;
+    padding: 0;
 }
+
 body {
     background-color: #f2f3f5;
     padding: 15px;
+}
+
+.layui-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#fromAdd {
+    padding: 20px 30px 0px 0px;
 }
